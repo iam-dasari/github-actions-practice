@@ -9,4 +9,6 @@ jobs:
 
     steps:
     - name: get the variable's values
-      run: echo ${{ vars.USER_NAME }}
+      run: |
+        echo "User Name: ${{ vars.USER_NAME }}"
+        echo "Password: ${{ secrets.PASSWORD }}"
