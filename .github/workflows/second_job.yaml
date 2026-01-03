@@ -13,6 +13,12 @@ jobs:
     - name: Generate a file
       run: echo "Hellow Build Job" >> build_job.txt
 
+    - name: Upload build_job.txt
+      uses: actions/upload-artifact@v4
+      with:
+        name: build_file
+        path: build_job.txt
+
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -26,11 +32,14 @@ jobs:
 
   deploy:
     needs: test
-    runs-on: ubuntu-laatest
+    runs-on: ubuntu-latest
 
     steps:
+    - name: download artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: build_file
+        
     - name: Display the content of build_job.txt
-      run: |
-        cd .github/workflows
-        cat build_job.txt
+      run: cat build_job.txt
         
