@@ -1,0 +1,36 @@
+name: GitHub Actions Second Workflow
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v4
+
+    - name: Generate a file
+      run: echo "Hellow Build Job" >> build_job.txt
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: this is a test job
+      run: |
+        cd .github/workflows
+        ls
+        sleep 10
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-laatest
+
+    steps:
+    - name: Display the content of build_job.txt
+      run: |
+        cd .github/workflows
+        cat build_job.txt
+        
