@@ -13,8 +13,10 @@ jobs:
         
       - name: List Files
         run: |
-          - cd .github/workflows
-          - ls
+          cd .github/workflows
+          ls
         
       - name: Read file
-        run: cat workflow1.yaml
+        run: |
+          cd .github/workflows
+          cat workflow1.yaml
