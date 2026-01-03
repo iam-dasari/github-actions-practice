@@ -19,4 +19,4 @@ jobs:
       - name: Read file
         run: |
           cd .github/workflows
-          cat workflow1.yaml
+          cat workflow1.yml
