@@ -1,0 +1,10 @@
+name: Github Actions Workflow Example
+
+on: [push]
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hellow World
+        run: echo "Hello GitHub Actions"
