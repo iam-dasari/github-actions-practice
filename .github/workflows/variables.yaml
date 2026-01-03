@@ -2,6 +2,7 @@ name: Github Actions Variables
 
 on:
   workflow_dispatch:
+
 env:
   CITY: Guntur
 
@@ -10,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: get the variable's values
-      run: |
-        echo "User Name: ${{ vars.USER_NAME }}"
-        echo "Password: ${{ secrets.PASSWORD }}"
-        echo "City: ${{ env.CITY }}
+      - name: Get the variable values
+        run: |
+          echo "User Name: ${{ vars.USER_NAME }}"
+          echo "City: ${{ env.CITY }}"
+          echo "Password is set: ${{ secrets.PASSWORD != '' }}"
