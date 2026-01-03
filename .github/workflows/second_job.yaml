@@ -25,10 +25,7 @@ jobs:
 
     steps:
     - name: this is a test job
-      run: |
-        cd .github/workflows
-        ls
-        sleep 10
+      run: echo "This is just a test job"
 
   deploy:
     needs: test
