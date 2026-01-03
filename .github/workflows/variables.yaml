@@ -9,4 +9,4 @@ jobs:
 
     steps:
     - name: get the variable's values
-      run: echo ${{ var.USER_NAME }}
+      run: echo ${{ vars.USER_NAME }}
