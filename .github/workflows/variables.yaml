@@ -1,7 +1,7 @@
 name: Github Actions Variables
 
 on:
-  push
+  workflow_dispatch
 
 jobs:
   variables_job:
