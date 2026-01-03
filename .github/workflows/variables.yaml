@@ -1,7 +1,7 @@
 name: Github Actions Variables
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
 env:
   CITY: Guntur
 
