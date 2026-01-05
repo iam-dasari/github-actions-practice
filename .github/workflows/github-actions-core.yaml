@@ -22,3 +22,9 @@ jobs:
 
       - name: Run the docker image
         run: docker run -p 8089:80 dasaridevops/nginx-app:${GITHUB_SHA::7}
+
+      - name: Wait for container
+        run: sleep 5
+
+      - name: Test application
+        run: curl -I http://localhost:8089
