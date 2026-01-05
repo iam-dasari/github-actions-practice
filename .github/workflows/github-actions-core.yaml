@@ -13,3 +13,12 @@ jobs:
 
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+      - name: Build Image
+        run: docker build -t dasaridevops/nginx-app:${GITHUB_SHA::7} .
+
+      - name: Push the Docker image
+        run: docker push dasaridevops/nginx-app:${GITHUB_SHA::7}
+
+      - name: Run the docker image
+        run: docker run -p 8089:80 dasaridevops/nginx-app:${GITHUB_SHA::7}
