@@ -21,7 +21,7 @@ jobs:
         run: docker push dasaridevops/nginx-app:${GITHUB_SHA::7}
 
       - name: Run the docker image
-        run: docker run -p 8089:80 dasaridevops/nginx-app:${GITHUB_SHA::7}
+        run: docker run -d -p 8089:80 --name nginx-test dasaridevops/nginx-app:${GITHUB_SHA::7}
 
       - name: Wait for container
         run: sleep 5
